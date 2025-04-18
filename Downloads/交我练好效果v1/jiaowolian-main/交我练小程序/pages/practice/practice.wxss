@@ -19,6 +19,10 @@
 .mic-icon {
   width: 100px;
   height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .progress {
@@ -41,4 +45,22 @@
     transform: scale(1.2);
     opacity: 0;
   }
+}
+
+.circle-press {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.hint-text {
+  position: absolute;
+  bottom: 20%;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

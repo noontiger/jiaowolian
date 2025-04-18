@@ -12,9 +12,11 @@ Page({
     if (isRecording) {
       // 停止录音
       this.stopRecord();
+      this.stopAnimation();
     } else {
       // 开始录音
       this.startRecord();
+      this.startAnimation();
     }
   },
 
