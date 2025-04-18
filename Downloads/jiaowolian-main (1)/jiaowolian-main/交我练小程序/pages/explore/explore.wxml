@@ -1,0 +1,9 @@
+<!-- explore.wxml -->
+<view>
+  <iframe
+    src="http://47.116.191.47:8080/ui/chat/c21e082c334c8008?mode=mobile"
+    style="width: 100%; height: 100%;"
+    frameborder="0"
+    allow="microphone">
+  </iframe>
+</view>
