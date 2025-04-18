@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="circle" bindtap="handleRecord">
+    <image class="mic-icon" src="/images/tabbar/chat-active.png" />
+    <view class="progress" wx:if="{{isRecording}}"></view>
+  </view>
+</view>

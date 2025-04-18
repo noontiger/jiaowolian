@@ -1,0 +1,75 @@
+<!-- exercise.wxml -->
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text class="loading-text">题目加载中...</text>
+  </view>
+  
+  <!-- 题目内容 -->
+  <view class="question-container" wx:if="{{!loading && question}}">
+    <!-- 题目信息 -->
+    <view class="question-header">
+      <view class="question-tags">
+        <text class="tag" wx:for="{{question.tags}}" wx:key="*this">{{item}}</text>
+        <text class="difficulty-tag">{{question.difficulty}}</text>
+      </view>
+    </view>
+    
+    <!-- 题目标题 -->
+    <view class="question-title">{{question.title}}</view>
+    
+    <!-- 选择题选项 -->
+    <view class="options-container" wx:if="{{questionType === 'choice'}}">
+      <view class="option-item {{selectedOption === item.id ? 'selected' : ''}} {{showAnswer && item.id === question.answer ? 'correct' : ''}} {{showAnswer && selectedOption === item.id && selectedOption !== question.answer ? 'wrong' : ''}}" 
+            wx:for="{{options}}" 
+            wx:key="id" 
+            bindtap="{{!showAnswer ? 'selectOption' : ''}}" 
+            data-option="{{item.id}}">
+        <text class="option-letter">{{item.id}}</text>
+        <text class="option-text">{{item.text}}</text>
+      </view>
+    </view>
+    
+    <!-- 填空题/解答题输入框 -->
+    <view class="answer-input-container" wx:if="{{questionType === 'fill' || questionType === 'essay'}}">
+      <textarea class="answer-input" placeholder="请输入你的答案" value="{{userAnswer}}" bindinput="onInput" disabled="{{showAnswer}}"></textarea>
+    </view>
+    
+    <!-- 提交按钮 -->
+    <view class="action-buttons">
+      <button class="submit-btn" bindtap="submitAnswer" wx:if="{{!showAnswer}}">提交答案</button>
+      <button class="next-btn" bindtap="nextQuestion" wx:if="{{showAnswer}}">下一题</button>
+    </view>
+    
+    <!-- 答案解析 -->
+    <view class="answer-analysis" wx:if="{{showAnswer}}">
+      <view class="result-banner {{isCorrect ? 'correct' : 'wrong'}}">
+        <text>{{isCorrect ? '回答正确' : '回答错误'}}</text>
+      </view>
+      
+      <view class="correct-answer">
+        <text class="label">正确答案：</text>
+        <text class="content">{{question.answer}}</text>
+      </view>
+      
+      <view class="analysis">
+        <text class="label">解析：</text>
+        <text class="content">{{question.analysis}}</text>
+      </view>
+    </view>
+    
+    <!-- 相关推荐 -->
+    <view class="related-questions" wx:if="{{relatedQuestions.length > 0}}">
+      <view class="section-title">相关推荐</view>
+      <view class="related-list">
+        <view class="related-item" wx:for="{{relatedQuestions}}" wx:key="id" bindtap="goToRelatedQuestion" data-id="{{item.id}}">
+          <text class="related-title">{{item.title}}</text>
+          <view class="related-tags">
+            <text class="tag small" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
