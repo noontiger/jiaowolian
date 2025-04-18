@@ -12,8 +12,9 @@ Page({
     imageUrl: '',
     // 热门推荐功能列表
     features: [
-      { id: 1, name: '试卷库', icon: '/images/features/exam.png', path: '/pages/exercise/exercise' },     
+      { id: 1, name: '试题库', icon: '/images/features/exam.png', path: '/pages/exercise/exercise' },     
       { id: 2, name: '同步练习', icon: '/images/features/practice.png', path: '/pages/exercise/exercise' },
+      { id: 3, name: '错题本', icon: '/images/features/correction.png', path: '/pages/wrong-questions/wrong-questions' },
       { id: 4, name: '计算器', icon: '/images/features/calculator.png', path: '/pages/calculator/calculator' }
     ],
     // 学习进度

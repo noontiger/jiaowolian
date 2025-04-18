@@ -9,6 +9,13 @@ Page({
     history: [],
     showHistory: false
   },
+  
+  // 跳转到错题本
+  goToWrongQuestions: function() {
+    wx.navigateTo({
+      url: '/pages/wrong-questions/wrong-questions'
+    })
+  },
 
   // 处理数字按钮点击
   inputDigit: function(e) {

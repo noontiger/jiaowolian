@@ -75,14 +75,6 @@
   
   <!-- 快捷功能区域 -->
   <view class="quick-actions" wx:if="{{hasUserInfo}}">
-    <view class="quick-action-item" bindtap="goToWrongQuestions">
-      <view class="quick-action-icon">📝</view>
-      <text class="quick-action-text">错题本</text>
-    </view>
-    <view class="quick-action-item" bindtap="goToLearningPath">
-      <view class="quick-action-icon">🛤️</view>
-      <text class="quick-action-text">学习路径</text>
-    </view>
   </view>
   
   <!-- 用户信息获取 -->
