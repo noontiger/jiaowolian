@@ -1,10 +1,6 @@
 <!-- calculator.wxml -->
 <view class="calculator-container">
-  <!-- 错题本入口 -->
-  <view class="wrong-questions-entry" bindtap="goToWrongQuestions">
-    <image src="/images/features/correction.png" class="wrong-questions-icon"></image>
-    <text class="wrong-questions-text">错题本</text>
-  </view>
+
   
   <!-- 显示屏 -->
   <view class="display">
