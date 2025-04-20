@@ -2,12 +2,11 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 8% 12% 8%;
+  padding: 8% 8% 8%;
   box-sizing: border-box;
   width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
-  max-width: 1200rpx;
 }
 
 .notification-bar {
@@ -42,23 +41,13 @@
   object-fit: cover;
   border-radius: 8px;
   position: relative;
-  margin: 0 auto;
-  display: block;
-}
-
-.welcome-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  position: relative;
   margin: 0 auto 10px;
   display: block;
 }
 
 .search-section {
   margin-bottom: 20rpx;
-  margin-top: 0;
+  margin-top: -20rpx;
   width: 100%;
   padding: 0;
 }
@@ -66,9 +55,8 @@
 .search-box {
   display: flex;
   align-items: center;
-  padding: 20rpx;
-  margin-top: 10rpx;
-  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
   box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
   background: #fff;
   height: 50rpx;
@@ -90,13 +78,14 @@
 }
 
 .search-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: #999;
 }
 
 /* 搜索选项卡 */
 .search-tabs {
   display: flex;
+  flex-direction: row-reverse; /* 将默认顺序反转，使拍照搜索在左 */
   margin-top: 20rpx;
   border-radius: 16rpx;
   overflow: hidden;
@@ -107,7 +96,7 @@
   flex: 1;
   text-align: center;
   padding: 20rpx;
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
 }
 
@@ -136,7 +125,7 @@
 }
 
 .camera-text {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
 }
 
@@ -191,9 +180,10 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 20px auto;
+  width: 90%;
 }
 
 .feature-item {
@@ -203,8 +193,8 @@
 }
 
 .feature-icon {
-  width: 130rpx;
-  height: 130rpx;
+  width: 120rpx;
+  height: 120rpx;
   background: #e6f7ff;
   border-radius: 50%;
   display: flex;
@@ -214,12 +204,12 @@
 }
 
 .feature-icon image {
-  width: 50px;
-  height: 50px;
+  width: 47px;
+  height: 47px;
 }
 
 .feature-text {
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 5px;
   white-space: nowrap;
   text-rendering: optimizeLegibility;
