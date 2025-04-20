@@ -1,0 +1,85 @@
+<!-- search.wxml -->
+<view class="container">
+  <!-- 搜索结果 -->
+  <view class="search-results" wx:if="{{searchResults.length > 0}}">
+    <view class="section-title">搜索结果</view>
+    <view class="result-list">
+      <view class="list-item" wx:for="{{searchResults}}" wx:key="id">
+        <view class="list-item-content">
+          <view class="list-item-title">{{item.title}}</view>
+          
+          <!-- 结构化题目展示 -->
+          <view class="question-card" wx:if="{{item.isStructured}}">
+            <!-- 难度指示器 -->
+            <view class="difficulty-indicator">
+              <text class="difficulty-text">难度：</text>
+              <!-- 如果有数字难度，显示星星 -->
+              <view class="difficulty-stars" wx:if="{{item.difficulty > 0}}">
+                <text class="star {{item.difficulty >= 1 ? 'active' : ''}}">★</text>
+                <text class="star {{item.difficulty >= 2 ? 'active' : ''}}">★</text>
+                <text class="star {{item.difficulty >= 3 ? 'active' : ''}}">★</text>
+                <text class="star {{item.difficulty >= 4 ? 'active' : ''}}">★</text>
+                <text class="star {{item.difficulty >= 5 ? 'active' : ''}}">★</text>
+              </view>
+              <!-- 如果有文本难度，直接显示 -->
+              <text class="difficulty-text-value" wx:else>{{item.difficultyText || '未知'}}</text>
+            </view>
+
+            <!-- 题目内容 -->
+            <view class="question-box">
+              <view class="box-header">题目</view>
+              <view class="box-content">
+                <wxml-to-canvas class="wxml-to-canvas" width="{{canvasWidth}}" height="{{canvasHeight}}">
+                  <view>{{item.question}}</view>
+                </wxml-to-canvas>
+              </view>
+            </view>
+            
+            <!-- 答案 -->
+            <view class="answer-box" wx:if="{{item.answer}}">
+              <view class="box-header">答案</view>
+              <view class="box-content highlight">
+                <wxml-to-canvas class="wxml-to-canvas" width="{{canvasWidth}}" height="{{canvasHeight}}">
+                  <view>{{item.answer}}</view>
+                </wxml-to-canvas>
+              </view>
+            </view>
+            
+            <!-- 解析 -->
+            <view class="analysis-box" wx:if="{{item.analysis}}">
+              <view class="box-header">解析</view>
+              <view class="box-content">
+                <wxml-to-canvas class="wxml-to-canvas" width="{{canvasWidth}}" height="{{canvasHeight}}">
+                  <view>{{item.analysis}}</view>
+                </wxml-to-canvas>
+              </view>
+            </view>
+            
+            <view class="recognition-time">识别时间：{{item.timestamp}}</view>
+          </view>
+          
+          <!-- 非结构化内容展示备用 -->
+          <view class="recognition-box" wx:if="{{!item.isStructured}}">
+            <view class="recognition-header">识别内容：</view>
+            <view class="recognition-content">{{item.rawContent}}</view>
+            <view class="recognition-time">{{item.timestamp}}</view>
+          </view>
+          
+          <view class="list-item-desc">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 无搜索结果提示 -->
+  <view class="no-result" wx:if="{{searched && searchResults.length === 0}}">
+    <text class="no-result-text">未找到相关结果</text>
+  </view>
+  
+  <!-- 固定在底部的练习按钮 -->
+  <view class="bottom-button-container" wx:if="{{searchResults.length > 0}}">
+    <button class="btn-practice-fixed" bindtap="goToDetail" data-id="{{searchResults[0].id}}">相似练习</button>
+  </view>
+</view>

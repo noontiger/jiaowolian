@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="circle" bindtap="handleRecord" hover-class="circle-press">
+    <image class="mic-icon" src="/images/tabbar/chat-active.png" />
+    <view class="progress" wx:if="{{isRecording}}"></view>
+  </view>
+  <view class="hint-text" animation="{{fadeIn}}">{{isRecording ? '点击停止录音' : '点击开始录音'}}</view>
+  <view class="ripple" wx:if="{{isRecording}}"></view>
+</view>

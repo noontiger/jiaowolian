@@ -1,0 +1,257 @@
+/* 容器样式 */
+.container {
+  padding: 10px;
+  padding-bottom: 80px; /* 为底部按钮留出空间 */
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 识别结果展示框样式 */
+.recognition-box {
+  margin: 10px 0;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border-left: 4px solid #2fa0ef;
+  width: 100%;
+}
+
+.recognition-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.recognition-content {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.recognition-time {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* 题目卡片整体样式 */
+.question-card {
+  margin: 10px 0;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 搜索结果容器 */
+.search-results {
+  width: 100%;
+  max-width: 100%;
+}
+
+.result-list {
+  width: 100%;
+}
+
+/* 难度指示器样式 */
+.difficulty-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.difficulty-text {
+  font-size: 14px;
+  color: #666;
+  margin-right: 8px;
+}
+
+.difficulty-stars {
+  display: flex;
+}
+
+.star {
+  color: #ddd;
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.star.active {
+  color: #FFCA28;
+}
+
+/* 难度文本样式 */
+.difficulty-text-value {
+  font-size: 14px;
+  color: #FF8F00;
+  font-weight: bold;
+}
+
+/* 公共盒子样式 */
+.question-box,
+.answer-box,
+.analysis-box {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.question-box {
+  background-color: #EFF8FF;
+  border: 1px solid #D4EAFF;
+}
+
+.answer-box {
+  background-color: #E8F5E9;
+  border: 1px solid #C8E6C9;
+}
+
+.analysis-box {
+  background-color: #FFF8E1;
+  border: 1px solid #FFE082;
+}
+
+.box-header {
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.question-box .box-header {
+  background-color: #D4EAFF;
+  color: #1976D2;
+}
+
+.answer-box .box-header {
+  background-color: #C8E6C9;
+  color: #388E3C;
+}
+
+.analysis-box .box-header {
+  background-color: #FFE082;
+  color: #FF8F00;
+}
+
+.box-content {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #388E3C;
+  font-size: 16px;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  color: #2fa0ef;
+  background-color: #e8f4ff;
+  padding: 2px 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.btn-practice {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 列表样式优化 */
+.list-item {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.list-item-content {
+  flex: 1;
+}
+
+.list-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* 添加这些样式用于LaTeX公式渲染 */
+.formula {
+  overflow-x: auto;
+  padding: 2px 0;
+  font-family: "Times New Roman", serif;
+}
+
+/* 底部固定按钮容器 */
+.bottom-button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* 底部固定按钮样式 */
+.btn-practice-fixed {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 0;
+  border-radius: 30px;
+  border: none;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: block;
+}
+
+/* 数学公式样式 */
+.math-block {
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.math-inline {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* 适应屏幕的内容区域 */
+.content-container {
+  width: 100%;
+  box-sizing: border-box;
+}
