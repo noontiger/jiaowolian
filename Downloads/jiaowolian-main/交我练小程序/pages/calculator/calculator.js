@@ -39,70 +39,130 @@ Page({
     this.recordKeyPress(digit);
   },
 
-  // 处理小数点按钮点击
+  // 处理小数点按钮点击（优化自动补零）
   inputDot: function() {
-    const { currentInput, waitingForOperand } = this.data
+    const { currentInput, waitingForOperand, operator } = this.data;
     
-    if (waitingForOperand) {
+    if (waitingForOperand || currentInput === '') {
       this.setData({
         currentInput: '0.',
         waitingForOperand: false
-      })
+      });
     } else if (currentInput.indexOf('.') === -1) {
-      this.setData({
-        currentInput: currentInput + '.'
-      })
+      // 运算符后自动补零
+      if (/[+\-*/]$/.test(currentInput)) {
+        this.setData({
+          currentInput: currentInput + '0.'
+        });
+      } else {
+        this.setData({
+          currentInput: currentInput + '.'
+        });
+      }
     }
     
     this.setData({
       display: this.data.currentInput
-    })
+    });
   },
 
-  // 处理运算符按钮点击
+  // 处理运算符按钮点击（增加连续运算符限制）
   handleOperator: function(e) {
-    const operator = e.currentTarget.dataset.operator
-    const { currentInput, previousInput } = this.data
-    
-    if (this.data.waitingForOperand) {
+    const operator = e.currentTarget.dataset.operator;
+    const { currentInput, operator: currentOp } = this.data;
+
+    // 禁止连续输入不同运算符
+    if (this.data.waitingForOperand && currentOp) {
       this.setData({
         operator: operator
-      })
-      return
+      });
+      return;
     }
-    
-    if (this.data.previousInput === null) {
+
+    // 输入运算符后自动补零
+    if (currentInput.endsWith('.') || currentInput === '') {
+      this.setData({
+        currentInput: currentInput + '0'
+      });
+    }
+
+    if (!this.data.previousInput) {
       this.setData({
         previousInput: currentInput,
         waitingForOperand: true,
         operator: operator
-      })
+      });
     } else {
-      const result = this.calculate(parseFloat(previousInput), parseFloat(currentInput), this.data.operator)
-      this.setData({
-        display: String(result),
-        previousInput: result,
-        currentInput: String(result),
-        waitingForOperand: true,
-        operator: operator
-      })
+      try {
+        const result = this.calculate();
+        this.setData({
+          display: String(result),
+          previousInput: String(result),
+          currentInput: String(result),
+          waitingForOperand: true,
+          operator: operator
+        });
+      } catch (error) {
+        return; // 错误信息已在calculate中处理
+      }
     }
     this.recordKeyPress(operator);
   },
 
-  // 执行计算
-  calculate: function(previous, current, operator) {
-    switch (operator) {
-      case '+':
-        return previous + current
-      case '-':
-        return previous - current
-      case '*':
-        return previous * current
-      case '/':
-        return previous / current
-      default:
-        return current
+  // 带优先级的表达式计算
+  calculate: function() {
+    const expression = this.data.previousInput + this.data.operator + this.data.currentInput;
+    const tokens = expression.match(/(\d+\.?\d*)|([+\-*/])/g);
+    const outputStack = [];
+    const operatorStack = [];
+    const precedence = {'+':1, '-':1, '*':2, '/':2};
+
+    tokens.forEach(token => {
+      if (!isNaN(token)) {
+        outputStack.push(parseFloat(token));
+      } else {
+        while (operatorStack.length > 0 && 
+              precedence[token] <= precedence[operatorStack[operatorStack.length-1]]) {
+          outputStack.push(operatorStack.pop());
+        }
+        operatorStack.push(token);
+      }
+    });
+
+    while (operatorStack.length > 0) {
+      outputStack.push(operatorStack.pop());
+    }
+
+    const evalStack = [];
+    outputStack.forEach(token => {
+      if (typeof token === 'number') {
+        evalStack.push(token);
+      } else {
+        const b = evalStack.pop();
+        const a = evalStack.pop();
+        if (token === '/' && b === 0) {
+          this.setData({
+            display: '无法除以零',
+            currentInput: '0',
+            previousInput: null,
+            operator: null
+          });
+          throw new Error('Division by zero');
+        }
+        evalStack.push(this.basicCalculate(a, b, token));
+      }
+    });
+
+    return evalStack.pop();
+  },
+
+  // 基本运算单元
+  basicCalculate: function(a, b, operator) {
+    switch(operator) {
+      case '+': return a + b;
+      case '-': return a - b;
+      case '*': return a * b;
+      case '/': return a / b;
     }
   },
 

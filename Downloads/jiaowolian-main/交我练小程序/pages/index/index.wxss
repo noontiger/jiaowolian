@@ -7,6 +7,7 @@
   width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .notification-bar {
@@ -57,11 +58,17 @@
   align-items: center;
   padding: 30rpx;
   margin-top: 20rpx;
-  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08), 0 2rpx 4rpx rgba(0, 0, 0, 0.05);
   background: #fff;
   height: 50rpx;
   width: 90%;
   margin: 0 auto;
+  border-radius: 16rpx;
+  transition: all 0.2s ease;
+}
+
+.search-box:active {
+  transform: scale(0.98);
 }
 
 .search-icon {
@@ -184,6 +191,10 @@
   gap: 30px;
   margin: 20px auto;
   width: 90%;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
 }
 
 .feature-item {

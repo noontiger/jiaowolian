@@ -34,7 +34,7 @@
     </view>
   </view>
   
-  <!-- 热门推荐功能区 -->
+  <!-- 热门功能区 -->
   <view class="features-section">
     <view class="section-title"></view>
     <view class="features-grid">

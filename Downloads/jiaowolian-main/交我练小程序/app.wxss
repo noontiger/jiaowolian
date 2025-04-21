@@ -1,4 +1,51 @@
 /**app.wxss**/
+
+/* 夜间模式样式 */
+.page.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.section.dark-mode {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.card.dark-mode {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.primary-btn.dark-mode {
+  background-color: #1976d2;
+}
+
+.secondary-btn.dark-mode {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.search-input.dark-mode {
+  background: #333;
+  color: #e0e0e0;
+}
+
+.list-item.dark-mode {
+  border-bottom-color: #333;
+}
+
+.list-item-title.dark-mode {
+  color: #e0e0e0;
+}
+
+.list-item-desc.dark-mode {
+  color: #aaa;
+}
+
+.progress-bar.dark-mode {
+  background: #333;
+}
+
 .container {
   height: 100%;
   display: flex;

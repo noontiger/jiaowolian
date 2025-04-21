@@ -12,12 +12,14 @@
 
 /* 用户信息区域 */
 .user-info-section {
-  background: linear-gradient(135deg, #1296db, #1a73e8);
-  padding: 80rpx 0 60rpx;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  padding: 100rpx 0 80rpx;
   color: #fff;
-  box-shadow: 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.2);
   position: relative;
   width: 100%;
+  margin-bottom: 40rpx;
+  border-radius: 0 0 40rpx 40rpx;
 }
 
 .user-info {
@@ -29,11 +31,12 @@
 }
 
 .user-avatar {
-  width: 160rpx;
-  height: 160rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 50%;
-  border: 4rpx solid rgba(255, 255, 255, 0.6);
-  margin-bottom: 20rpx;
+  border: 6rpx solid rgba(255, 255, 255, 0.8);
+  margin-bottom: 30rpx;
+  box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.2);
 }
 
 .user-avatar-placeholder {
@@ -71,6 +74,11 @@
   position: relative;
   z-index: 1;
   width: calc(100% - 40rpx);
+  transition: all 0.3s ease;
+}
+
+.statistics-section:active {
+  transform: scale(0.98);
 }
 
 .statistics-grid {
@@ -83,18 +91,25 @@
   flex-direction: column;
   align-items: center;
   width: 25%;
+  padding: 10rpx;
 }
 
 .statistics-value {
-  font-size: 40rpx;
+  font-size: 42rpx;
   font-weight: bold;
-  color: #1296db;
+  color: #1a73e8;
   margin-bottom: 10rpx;
+  transition: all 0.3s ease;
+}
+
+.statistics-item:active .statistics-value {
+  transform: scale(1.1);
 }
 
 .statistics-label {
-  font-size: 24rpx;
-  color: #999;
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 500;
 }
 
 /* 功能列表区域 */
@@ -126,6 +141,11 @@
   border-bottom: 1rpx solid #eee;
   margin: 0 20rpx;
   width: calc(100% - 40rpx);
+  transition: all 0.2s ease;
+}
+
+.function-item:active {
+  background-color: #f8f8f8;
 }
 
 .function-item:last-child {
@@ -137,6 +157,7 @@
   margin-right: 20rpx;
   width: 60rpx;
   text-align: center;
+  color: #1a73e8;
 }
 
 .function-name {

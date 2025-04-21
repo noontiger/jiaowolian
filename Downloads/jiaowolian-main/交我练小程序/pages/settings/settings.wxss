@@ -1,0 +1,52 @@
+/* settings.wxss */
+.settings-container {
+  padding: 0;
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.settings-list {
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+
+.settings-group {
+  margin: 0 32rpx;
+}
+
+.settings-item {
+  padding: 28rpx 0;
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-item:active {
+  background: #f2f2f2;
+}
+
+.settings-divider {
+  height: 16rpx;
+  background: #f7f7f7;
+}
+
+.current-setting {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.item-arrow {
+  width: 24rpx;
+  height: 24rpx;
+  color: #999;
+}
+
+.logout-btn {
+  margin: 40rpx 32rpx;
+  background: #fff;
+  color: #f00;
+  border: none;
+  font-size: 32rpx;
+}

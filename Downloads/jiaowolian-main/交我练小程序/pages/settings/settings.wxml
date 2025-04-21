@@ -1,0 +1,43 @@
+<view class="settings-container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    <text class="nickname">{{userInfo.nickName}}</text>
+  </view>
+  
+  <!-- 设置选项 -->
+  <view class="settings-list">
+    <view class="settings-group">
+      <view class="settings-item" bindtap="toggleLanguage">
+        <text>语言设置</text>
+        <text class="current-setting">{{language === 'zh' ? '中文' : 'English'}}</text>
+      </view>
+      <view class="settings-item" bindtap="toggleTheme">
+        <text>主题设置</text>
+        <text class="current-setting">{{theme === 'light' ? '日间模式' : '夜间模式'}}</text>
+      </view>
+    </view>
+    
+    <view class="settings-divider"></view>
+    
+    <view class="settings-group">
+      <navigator url="/pages/settings/change-password" class="settings-item">
+        <text>修改密码</text>
+      </navigator>
+      <navigator url="/pages/settings/privacy" class="settings-item">
+        <text>隐私设置</text>
+      </navigator>
+    </view>
+    
+    <view class="settings-divider"></view>
+    
+    <view class="settings-group">
+      <navigator url="/pages/settings/about" class="settings-item">
+        <text>关于我们</text>
+      </navigator>
+    </view>
+  </view>
+  
+  <!-- 退出登录 -->
+  <button class="logout-btn" bindtap="logout">退出登录</button>
+</view>
