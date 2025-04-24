@@ -123,6 +123,12 @@
   background-color: #fff;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.camera-box:active {
+  transform: scale(0.98);
+  background-color: rgba(18, 150, 219, 0.2);
 }
 
 .camera-icon {
@@ -191,16 +197,17 @@
   gap: 30px;
   margin: 20px auto;
   width: 90%;
-  padding: 20rpx;
-  background: #fff;
-  border-radius: 16rpx;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
 }
 
 .feature-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.2s ease;
+}
+
+.feature-item:active {
+  transform: scale(0.98);
 }
 
 .feature-icon {
@@ -212,6 +219,11 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 10rpx;
+  transition: all 0.2s ease;
+}
+
+.feature-icon:active {
+  background: rgba(18, 150, 219, 0.2);
 }
 
 .feature-icon image {
