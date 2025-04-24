@@ -1,7 +1,7 @@
 <!-- explore.wxml -->
 <view>
   <web-view
-    src="http://47.116.191.47:8080/ui/chat/c21e082c334c8008?mode=mobile"
+    src="https://aiassistant.saif.sjtu.edu.cn:8443/ui/chat/c21e082c334c8008?mode=mobile"
     style="width: 100%; height: 100%;">
   </web-view>
 </view>

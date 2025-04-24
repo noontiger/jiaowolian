@@ -4,7 +4,7 @@
 function uploadImageFile(chatId, filePath) {
   return new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: `http://47.116.191.47:8080/api/application/2e885548-1b99-11f0-8acd-0242ac120003/chat/${chatId}/upload_file`,
+      url: `https://aiassistant.saif.sjtu.edu.cn:8443/api/application/2e885548-1b99-11f0-8acd-0242ac120003/chat/${chatId}/upload_file`,
       filePath: filePath,
       name: 'file',
       header: {
